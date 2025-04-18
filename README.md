@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: 
+**URL**: https://pawfectly-yours.vercel.app/
 
 **Use your preferred IDE**
 
