@@ -1,0 +1,191 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 98%;
+    --foreground: 20 10% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 10% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 10% 25%;
+
+    --primary: 20 80% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 80% 90%;
+    --secondary-foreground: 200 10% 25%;
+
+    --muted: 30 10% 92%;
+    --muted-foreground: 20 10% 40%;
+
+    --accent: 260 60% 92%;
+    --accent-foreground: 260 10% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 10% 85%;
+    --input: 20 10% 85%;
+    --ring: 20 80% 65%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 20 10% 10%;
+    --foreground: 30 10% 95%;
+
+    --card: 20 10% 15%;
+    --card-foreground: 30 10% 95%;
+
+    --popover: 20 10% 15%;
+    --popover-foreground: 30 10% 95%;
+
+    --primary: 20 80% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 80% 30%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 20 10% 20%;
+    --muted-foreground: 20 10% 70%;
+
+    --accent: 260 60% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 10% 25%;
+    --input: 20 10% 25%;
+    --ring: 20 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+
+  /* Enhanced Transitions */
+  a, button {
+    @apply transition-all duration-300;
+  }
+
+  /* Improve scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Improved focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Premium hover effects */
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Fade-in animation for elements */
+  .fade-in {
+    @apply opacity-0 translate-y-4;
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  /* Premium button styles */
+  .btn-premium {
+    @apply rounded-full bg-gradient-to-r from-primary to-primary/90 text-white font-medium px-6 py-3 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:border-primary/20;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* For webkit browsers - improve scrollbar appearance */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.cream');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.primary.DEFAULT');
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.brown');
+}
